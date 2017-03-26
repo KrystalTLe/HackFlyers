@@ -23,8 +23,10 @@
 	//Attempt to insert data into data base. Output error if any
 	//If Success
 	if (mysqli_query($conn, $query)) {
-	    echo "Location Added";
-	   // echo "<a href='mainpage.php'><button>Back to home page</button></a>";
+		echo "<br/>";
+		echo "<div style='font-size: 200%; text-align: center; color:#495C70'>";
+	    echo "<p>Location Added Succesfully</p>";
+	    echo "</div>";
 	} else {
 	    echo "Error: " . $query . "<br>" . mysqli_error($conn);
 	}
@@ -34,7 +36,7 @@
 ?>
 <form method="POST" action="mainpage.php">
 	<input type="hidden" name="email" id="email"/>
-	<input type="Submit" value="Back to Home Page"/>
+	<input style="width: 200px;height: 80px;font-size: 80%;color: white;background-color: #495C70;margin: 0 45%;" type="Submit" value="BACK TO MAP"/>
 </form>
 <script>
 	
