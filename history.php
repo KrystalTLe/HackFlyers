@@ -9,7 +9,7 @@
 
 <?php
 	
-@$db=new mysqli('localhost','lewishthon10', 'hack121','hackdb10');
+@$db=new mysqli('localhost','', '','');
 
 	if($db->connect_error){
 		die('Connect Error' . $db->connect_errno . ': ' .$db->connect_error);
