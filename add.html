@@ -11,24 +11,30 @@
         $( function() {
             $( "#datepicker" ).datepicker();
         } );
+        function goback(){
+            window.history.back();
+        }
     </script>
 </head>
-<body>
-    <h1>Add New Destination</h1>
+<body style="">
+    
 
-    <form action="add.php" method="POST">
+    <form class="form-style-4" action="add.php" method="POST">
+        <h1>ADD NEW DESTINATION</h1>
+        <br/>
         <input type="hidden" id="email" name="email"/>
-	 Location:<t />
-        <input name="location" id="address-input" type="text" size="40"/>
-        <br />
-        Date:<t />
-        <input name="text" id="datepicker" />
-        <br />
-        <label>Memo: </label>
-        <br/>
-        <textarea rows="4" cols="50" name="memo"></textarea>
-        <br/>
-        <br/>
+        <label><span>Location: </span>
+            <input name="location" id="address-input" type="text" size="40"/>
+        </label>
+        <label>
+            <span>Date: </span>
+            <input name="text" id="datepicker" />
+        </label>
+        <label>
+            <span>Memo: </span>
+            <textarea rows="4" cols="50" name="memo"></textarea>
+        </label>
+        
         <fieldset class="rating" >
             <input type="radio" id="star5" name="rating" value="5" />
             <label class = "full" for="star5"></label>
@@ -62,14 +68,15 @@
         </fieldset>
         <br/>
         <br/>
+        <br/>
         <input type="Submit" name="Submit"/>
         <t/>
         <input type="Reset" name="Reset"/>
+        <input type="button" value="Cancel" onclick="goback()">
     </form>
-
     <form action="mainpage.php" method="POST">
-	<input type="hidden" name="email" id="user_email"/>
-        <input type="Submit" value="Cancel"/>
+        <input type="hidden" name="email" id="user_email"/>
+        <!-- <input type="Submit" value="Cancel"/> -->
     </form>
 <script>
 document.getElementById("email").value = sessionStorage.getItem('email');

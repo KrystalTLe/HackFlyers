@@ -1,33 +1,44 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
-fieldset, label { margin: 0; padding: 0; }
-body{ margin: 20px; }
-h1 { font-size: 1.5em; margin: 10px; }
+fieldset, label { 
+    margin: 0; 
+    padding: 0; }
+body{ 
+    margin: 10% 30%;
+    background-color: #394D61; 
+    }
+h1 { 
+    font-size: 200%; 
+    margin: 10px; 
+    font-family: Georgia, "Times New Roman", 
+    Times, serif;
+    color: #fff;  
+}
 
-/****** Style Star Rating Widget *****/
+  /****** Style Star Rating Widget *****/
 
 .rating { 
-  border: none;
-  float: left;
+    border: none;
+    float: left;
 }
 
 .rating > input { display: none; } 
 .rating > label:before { 
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
 }
 
 .rating > .half:before { 
-  content: "\f089";
-  position: absolute;
+    content: "\f089";
+    position: absolute;
 }
 
 .rating > label { 
-  color: #ddd; 
- float: right; 
+    color: #ddd; 
+    float: right; 
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
@@ -43,3 +54,80 @@ changing rating */
 .rating > label:hover ~ input:checked ~ label, /* lighten current 
 selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+
+.form-style-4{
+    width: 450px;
+    font-size: 16px;
+    background: #495C70;
+    padding: 30px 30px 15px 30px;
+    border: 5px solid #53687E;
+}
+.form-style-4 input[type=submit],
+.form-style-4 input[type=reset],
+.form-style-4 input[type=button],
+.form-style-4 input[type=text],
+.form-style-4 input[type=email],
+.form-style-4 textarea,
+.form-style-4 label
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: #fff;
+
+}
+.form-style-4 label {
+    display:block;
+    margin-bottom: 10px;
+}
+.form-style-4 label > span{
+    display: inline-block;
+    float: left;
+    width: 150px;
+}
+.form-style-4 input[type=text],
+.form-style-4 input[type=email] 
+{
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    outline: none;
+    padding: 0px 0px 0px 0px;
+    font-style: italic;
+}
+.form-style-4 textarea{
+    font-style: italic;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    overflow: hidden;
+    resize:none;
+    height:20px;
+}
+
+.form-style-4 textarea:focus, 
+.form-style-4 input[type=text]:focus,
+.form-style-4 input[type=email]:focus,
+.form-style-4 input[type=email] :focus
+{
+    border-bottom: 1px dashed #D9FFA9;
+}
+
+.form-style-4 input[type=submit],
+.form-style-4 input[type=reset],
+.form-style-4 input[type=button]{
+    background: #576E86;
+    border: none;
+    padding: 8px 10px 8px 10px;
+    border-radius: 5px;
+    color: #A8BACE;
+}
+.form-style-4 input[type=submit]:hover,
+.form-style-4 input[type=reset]:hover,
+.form-style-4 input[type=button]:hover{
+    background: #394D61;
+}
