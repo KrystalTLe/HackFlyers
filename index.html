@@ -27,7 +27,7 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      window.location = "https://cs.lewisu.edu/~robertadudasik/HackFlyers/mainpage.html";
+     // window.location = "https://cs.lewisu.edu/~robertadudasik/HackFlyers/mainpage.html";
 	testAPI();
     } else {
       // The person is not logged into your app or we are unable to tell.
@@ -47,7 +47,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '{your-app-id}',
+    appId      : 'bdudasik',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -70,7 +70,8 @@
     statusChangeCallback(response);
   });
 
-  };
+ 
+ };
 
   // Load the SDK asynchronously
   (function(d, s, id) {
@@ -85,13 +86,28 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+    FB.api('/me?fields=name,email', function(response) {
+	   console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-	window.location="https://cs.lewisu.edu/~robertadudasik/HackFlyers/mainpage.html";
+        'Thanks for logging in, ' + response.email + '!';
+	sessionStorage.setItem('email',response.email);
+//window.location="https://cs.lewisu.edu/~robertadudasik/HackFlyers/mainpage.html";
+
     });
-  }
+ }
+
+function fbLogoutUser() {
+    FB.getLoginStatus(function(response) {
+        if (response && response.status === 'connected') {
+		sessionStorage.clear();
+		console.log('it works');
+            FB.logout(function(response) {
+                document.location.reload();
+            });
+        }
+    });
+}
+
 </script>
 
 <!--
@@ -102,10 +118,10 @@
 
 <div id="status">
 </div>
-<fb:login-button scope="email,user_likes,user_photos"    
-onlogin='window.location="https://cs.lewisu.edu/~robertadudasik/HackFlyers/mainpage.html";'>Connect 
+<fb:login-button scope="email,public_profile"    
+onlogin='testAPI()'>Connect 
 with Facebook</fb:login-button> 
 
-
+<button onClick="fbLogoutUser()">Log Out</button>
 </body>
 </html>
