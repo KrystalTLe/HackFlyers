@@ -1,0 +1,17 @@
+body{
+	background-color: #394D61;
+}
+.box{
+	margin: 15px 30px 15px 30px;
+	background-color: #495C70; 
+	padding: 10px 0 10px 10px;
+	color: white;
+}
+#return{
+	width: 200px;
+	height: 80px;
+	font-size: 80%;
+	color: white;
+	background-color: #495C70;
+	margin: 0 45%;
+}

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<head>
+<head>
 	<meta charset="UTF-8">
 	<title>Travel History</title>
-	</head>
+	<link rel="stylesheet" type="text/css" href="css/history.css">
+</head>
 <body>
 
 <?php
@@ -20,36 +21,24 @@ destinations where email='$email' order by rating desc";
 
 	$result=$db->query($query);
 	$num_results = $result->num_rows;
-	echo "<p>$num_results destinations found!</p>";
-	echo "<table><tr>";
-	echo "<th>Location</th>";
-	echo "<th>Date</th>";
-	echo "<th>Description</th>";
-	echo "<th>Rating</th>";
-	//echo "<th>Email</th>";
-	echo "</tr>";
-	
-	
 	for($i=0; $i<$num_results;$i++){
-		echo "<tr>";
+		// echo "<tr>";
 		$row=$result->fetch_assoc();
-		echo "<td>".htmlspecialchars(stripslashes($row['location']))."</td>";
-		echo "<td>".htmlspecialchars(stripslashes($row['date']))."</td>";
-		echo "<td>".htmlspecialchars(stripslashes($row['description']))."</td>";
-		echo "<td>".htmlspecialchars(stripslashes($row['rating']))."</td>";
-		//echo "<td>".htmlspecialchars(stripslashes($row['email']))."</td>";
-		echo"</tr>";
-	}
-	echo "</table>";
-	
-	
+		echo "<div class='box'>";
+		echo "<h2>Destination: ".htmlspecialchars(stripslashes($row['location']))."</h2>";
+		echo "<p>Date: ".htmlspecialchars(stripslashes($row['date']))."</p>";
+		echo "<p>Memo: ".htmlspecialchars(stripslashes($row['description']))."</p>";
+		echo "<p>Rating: ".htmlspecialchars(stripslashes($row['rating']))."</p>";
+		echo "</div>";
+
+	}	
 	$result->free();
 	$db->close();
 
 ?>
 <form action="mainpage.php" method="POST">
 	<input type="hidden" name="email" id="email"/>
-	<input type="Submit" value="Return to Home Page"/>
+	<input id ="return"  type="Submit" value="RETURN TO MAP"/>
 </form>
 <script>	
 document.getElementById('email').value=sessionStorage.getItem('email');
