@@ -130,5 +130,22 @@ function initMap() {
 		}
 	  ]
 	});
+	var geocoder = new google.maps.Geocoder();
+	for(var i=0;i<arrayObject.length;i++){
+		var location=(arrayObject[i]);
+		geocoder.geocode({address: location}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			var myResult = results[0].geometry.location; // reference LatLng value
+			map.setCenter(myResult);
+			map.setZoom(2);
+			marker = new google.maps.Marker({
+		      	map: map,
+		   	   	position: myResult
+		   		});
+			}
+		});
+		
+
+	}
 }
 
