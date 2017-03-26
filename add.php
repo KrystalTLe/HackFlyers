@@ -23,7 +23,7 @@
 	//If Success
 	if (mysqli_query($conn, $query)) {
 	    echo "Location Added";
-	    echo "<a href='mainpage.html'><button>Back to home page</button></a>";
+	    echo "<a href='mainpage.php'><button>Back to home page</button></a>";
 	} else {
 	    echo "Error: " . $query . "<br>" . mysqli_error($conn);
 	}

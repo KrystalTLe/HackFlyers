@@ -36,14 +36,20 @@
     
 
     <div id="map"></div>
+    <div id="whitespace"></div>
     <div id="bottom">
-        <a href="add.html"><button id="add">Add</button></a>
-        <a href="history.html"><button id="view_places">View Travel History</button></a>
+        <form action="add.html" method="POST"><input type="submit" value="Add" id="add"></input></form>
+        <form action="history.php" method="POST"><input type="submit" id="view_places" value="View Travel History"></input>
+        <input id="email" type="hidden" name="email"></input>
+    </form>
     </div>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKQEpOI3qtOsSAAmNlAc_Ere7rD-oV1cs&callback=initMap"
     async defer></script>
     <script type="text/javascript" src="js/mainpage.js"></script>
-
+    <script>
+    document.getElementById('email').value=sessionStorage.getItem('email');
+    console.log(sessionStorage.getItem('email'));
+    </script>
   </body>
 </html>
