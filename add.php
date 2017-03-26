@@ -5,9 +5,9 @@
 	$rating = $_POST['rating'];
 	$description = $_POST['memo'];
 	$servername = "localhost";
-	$username = "lewishthon10";
-	$password = "hack121";
-	$db='hackdb10';
+	$username = "";
+	$password = "";
+	$db='';
 	$email=$_POST['email'];
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $db);
