@@ -9,10 +9,10 @@
 </head>
 <body>
     <?php
-    $servername = "localhost";
-    $username = "lewishthon10";
-    $password = "hack121";
-    $db='hackdb10';
+    $servername = "";
+    $username = "";
+    $password = "";
+    $db='';
     $email=$_POST['email'];
         // Create connection
     $conn = mysqli_connect($servername, $username, $password, $db);
