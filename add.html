@@ -66,11 +66,14 @@
         <t/>
         <input type="Reset" name="Reset"/>
     </form>
-<script>
-document.getElementById("email").value = sessionStorage.getItem('email');
-</script>
-    <form action="mainpage.php">
+
+    <form action="mainpage.php" method="POST">
+	<input type="hidden" name="email" id="user_email"/>
         <input type="Submit" value="Cancel"/>
     </form>
+<script>
+document.getElementById("email").value = sessionStorage.getItem('email');
+document.getElementById("user_email").value = sessionStorage.getItem('email');
+</script>
 </body>
 </html>

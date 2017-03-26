@@ -14,6 +14,7 @@
         $username = "lewishthon10";
         $password = "hack121";
         $db='hackdb10';
+	$email=$_POST['email'];
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $db);
         // Check connection
@@ -21,7 +22,8 @@
             die("Connection failed: " . mysqli_connect_error());
         }else{
             $result_array=Array();
-            $query="SELECT `location` from `destinations`";
+            $query="SELECT location from `destinations` where 
+email='$email'";
             $result=mysqli_query($conn, $query);
             while ($row = mysqli_fetch_assoc($result)){
                 $result_array[]=$row['location'];

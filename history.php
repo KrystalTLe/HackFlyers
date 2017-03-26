@@ -15,17 +15,18 @@
 	}
 	$email= $_POST['email'];
 
-	$query = "select location,date,description,rating,email from destinations where email='$email' order by rating";
+	$query = "select location,date,description,rating,email from 
+destinations where email='$email' order by rating desc";
 
 	$result=$db->query($query);
 	$num_results = $result->num_rows;
 	echo "<p>$num_results destinations found!</p>";
 	echo "<table><tr>";
 	echo "<th>Location</th>";
-	echo "<th>Description</th>";
 	echo "<th>Date</th>";
+	echo "<th>Description</th>";
 	echo "<th>Rating</th>";
-	echo "<th>Email</th>";
+	//echo "<th>Email</th>";
 	echo "</tr>";
 	
 	
@@ -36,7 +37,7 @@
 		echo "<td>".htmlspecialchars(stripslashes($row['date']))."</td>";
 		echo "<td>".htmlspecialchars(stripslashes($row['description']))."</td>";
 		echo "<td>".htmlspecialchars(stripslashes($row['rating']))."</td>";
-		echo "<td>".htmlspecialchars(stripslashes($row['email']))."</td>";
+		//echo "<td>".htmlspecialchars(stripslashes($row['email']))."</td>";
 		echo"</tr>";
 	}
 	echo "</table>";
@@ -46,6 +47,12 @@
 	$db->close();
 
 ?>
-
+<form action="mainpage.php" method="POST">
+	<input type="hidden" name="email" id="email"/>
+	<input type="Submit" value="Return to Home Page"/>
+</form>
+<script>	
+document.getElementById('email').value=sessionStorage.getItem('email');
+</script>
 </body>
 </html>

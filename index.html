@@ -28,6 +28,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
      // window.location = "https://cs.lewisu.edu/~robertadudasik/HackFlyers/mainpage.html";
+
 	testAPI();
     } else {
       // The person is not logged into your app or we are unable to tell.
@@ -47,7 +48,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : 'bdudasik',
+    appId      : '192345161265752',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -91,6 +92,9 @@
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.email + '!';
 	sessionStorage.setItem('email',response.email);
+	document.getElementById('email_main').value=sessionStorage.getItem('email');
+	console.log('Test');
+	console.log(sessionStorage.getItem('email'));
 //window.location="https://cs.lewisu.edu/~robertadudasik/HackFlyers/mainpage.html";
 
     });
@@ -123,5 +127,12 @@ onlogin='testAPI()'>Connect
 with Facebook</fb:login-button> 
 
 <button onClick="fbLogoutUser()">Log Out</button>
+<form method="POST" action="mainpage.php">
+	<input type="hidden" name="email" id="email_main"/>
+	<input type="submit" value="Proceed to Main Site"/>
+</form>
+
+	
+
 </body>
 </html>
