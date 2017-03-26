@@ -37,6 +37,10 @@
         <form id="history_button" action="history.php" method="POST"><input type="submit" id="view_places" value="VIEW TRAVEL HISTORY"></input>
             <input id="email" type="hidden" name="email"></input>
         </form>
+
+
+
+	
     </div>  
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKQEpOI3qtOsSAAmNlAc_Ere7rD-oV1cs&callback=initMap"
     async defer></script>

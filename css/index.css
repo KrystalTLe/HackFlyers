@@ -1,11 +1,4 @@
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-#map {
-  height: 500px;
-  width:75%;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
@@ -17,22 +10,24 @@ html, body {
 	margin: 3% 33%;
 
 }
-#add{
+#proceed_button{
 	width: 200px;
 	height: 80px;
 	font-size: 80%;
 	color: white;
 	background-color: #2c5a71;
 }
-#view_places{
+#logout_button{
 	width: 200px;
 	height: 80px;
 	font-size: 80%;
 	color: white;
 	background-color: #2c5a71;
 }
-
-#add_button, #history_button{
-
-	float:left;
+#authenticate_button{
+	width: 200px;
+	height: 80px;
+	font-size: 80%;
+	color: white;
+	background-color: #2c5a71;
 }

@@ -12,7 +12,22 @@
             $( "#datepicker" ).datepicker();
         } );
         function goback(){
-            window.history.back();
+
+
+    var form = document.createElement("form");
+    form.setAttribute("method", "POST");
+    form.setAttribute("action", "mainpage.php");
+    var hiddenField = document.createElement("input");
+     hiddenField.setAttribute("type", "hidden");
+     hiddenField.setAttribute("name", "email");
+     hiddenField.setAttribute("id","email");
+     hiddenField.setAttribute("value", sessionStorage.getItem('email'));
+     form.appendChild(hiddenField);
+
+
+    document.body.appendChild(form);
+    form.submit();
+
         }
     </script>
 </head>
@@ -74,9 +89,10 @@
         <input type="Reset" name="Reset"/>
         <input type="button" value="Cancel" onclick="goback()">
     </form>
-    <form action="mainpage.php" method="POST">
+    <!--<form action="mainpage.php" method="POST">
         <input type="hidden" name="email" id="user_email"/>
-    </form>
+        <!-- <input type="Submit" value="Cancel"/>
+    </form>-->
 <script>
 document.getElementById("email").value = sessionStorage.getItem('email');
 document.getElementById("user_email").value = sessionStorage.getItem('email');

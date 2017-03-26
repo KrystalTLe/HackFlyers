@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
 </head>
 <body>
+
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -32,8 +36,8 @@
 	testAPI();
     } else {
       // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+      //document.getElementById('status').innerHTML = 'Please log ' +
+        //'into this app.';
     }
   }
 
@@ -89,13 +93,17 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=name,email', function(response) {
 	   console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.email + '!';
+      //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.email + '!';
 	sessionStorage.setItem('email',response.email);
 	document.getElementById('email_main').value=sessionStorage.getItem('email');
-	console.log('Test');
+
 	console.log(sessionStorage.getItem('email'));
-//window.location="https://cs.lewisu.edu/~robertadudasik/HackFlyers/mainpage.html";
+	
+
+         //document.location.reload();
+
+	//window.location="https://cs.lewisu.edu/~robertadudasik/HackFlyers/";
 
     });
  }
@@ -119,18 +127,24 @@ function fbLogoutUser() {
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
+<!--<div id="status">
+</div>-->
 
-<div id="status">
+<div id="user_buttons">
 </div>
-<fb:login-button scope="email,public_profile"    
-onlogin='testAPI()'>Connect 
-with Facebook</fb:login-button> 
+<script>
+	if(sessionStorage.getItem('email')){
+	document.getElementById("user_buttons").innerHTML ="<form method='POST' action='mainpage.php'><input type='hidden' name='email' id='email_main'/><input id='proceed_button' type='submit' value='Proceed to Main Site'/></form><button id='logout_button' onClick='fbLogoutUser()'>Log Out</button>";
 
-<button onClick="fbLogoutUser()">Log Out</button>
-<form method="POST" action="mainpage.php">
-	<input type="hidden" name="email" id="email_main"/>
-	<input type="submit" value="Proceed to Main Site"/>
-</form>
+	}
+
+
+
+	else{
+	document.getElementById("user_buttons").innerHTML ="<fb:login-button id='fb_login_button' scope='email,public_profile' onlogin='testAPI()'>Connect with Facebook</fb:login-button><br/><button id='authenticate_button' onClick='window.location.reload()'>Authenticate</button>";
+
+	}
+</script>
 
 	
 
